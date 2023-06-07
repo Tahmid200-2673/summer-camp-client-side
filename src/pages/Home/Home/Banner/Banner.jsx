@@ -10,7 +10,7 @@ const Banner = () => {
     return (
         <Carousel >
       <div className="b-slide">
-        <img src={img1}  />
+        <img src={img1}  className="b-img"/>
         <div className="b-caption">
           <h2 className="b-title">Summer Sports Camp</h2>
           <p className="b-description">Experience the thrill of sports this summer</p>

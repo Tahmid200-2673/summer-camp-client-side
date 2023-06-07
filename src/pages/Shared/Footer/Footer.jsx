@@ -19,10 +19,10 @@ const Footer = () => {
           </Col>
           <Col md={4} className="mb-4 mt-5">
             <h5 className="mx-5">Contact</h5>
-            <p className="mx-5">Email: tahmidahmed2002673@gmail.com</p>
-            <p className="mx-5">Phone: +880 153 347 2575</p>
+            <p className="mx-5">Email: tahmid22673@gmail.com</p>
+            <p className="mx-5">Phone: +880 153 347 2000</p>
           </Col>
-          <Col md={4} className="mt-5">
+          <Col md={4} className="mt-5 ">
             <h5 className="mx-5">Address</h5>
             <p className="mx-5">391/C, Khilgaon,</p>
             <p className="mx-5">Dhaka-1219</p>

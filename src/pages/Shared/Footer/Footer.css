@@ -7,4 +7,15 @@
     font-size: 14px;
     color: #777;
   }
+  @media only screen and (min-width: 688px) and (max-width: 992px){
+    .f-text {
+        font-size: 12px;
+      }
+  }
   
+  @media  only screen and (max-width: 688px) {
+    
+    .f-text {
+        font-size: 10px;
+      }
+  }

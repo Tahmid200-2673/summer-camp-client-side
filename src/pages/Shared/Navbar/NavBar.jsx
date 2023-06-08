@@ -1,9 +1,16 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import logo2 from '../../../assets/logo2.jpg';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
-    const user=0;
+    const {user, roleLogOut}=useContext(AuthContext);
+
+    const functionLogOut = () => {
+      roleLogOut()
+          .then(() => { })
+          .catch(error => console.log(error));
+  }
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -20,20 +27,13 @@ const NavBar = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#instructors">Instructors</Nav.Link>
             <Nav.Link href="#classes">Classes</Nav.Link>
-            {user ? (
-              <>
-                <Nav.Link href="#dashboard">Dashboard</Nav.Link>
-                <Nav.Link href="#profile">
-                  <img
-                    src={user.photoURL}
-                    alt="User Profile"
-                    className="profile-picture"
-                  />
-                </Nav.Link>
-              </>
-            ) : (
-              <Nav.Link href="#login">Login</Nav.Link>
-            )}
+           {
+            user ? <>
+             <Button onClick={functionLogOut} variant="secondary" className='mx-5'>Logout</Button>{' '}
+            </> : <>
+            <Nav.Link href="/login">Login</Nav.Link>
+            </>
+           }
           </Nav>
         </Navbar.Collapse>
       </Container>

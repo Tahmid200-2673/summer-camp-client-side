@@ -20,7 +20,7 @@ const Footer = () => {
           <Col md={4} className="mb-4 mt-5">
             <h5 className="mx-5">Contact</h5>
             <p className="mx-5">Email: tahmid22673@gmail.com</p>
-            <p className="mx-5">Phone: +880 153 347 2000</p>
+            <p className="mx-5">Phone: +880 173 347 2000</p>
           </Col>
           <Col md={4} className="mt-5 ">
             <h5 className="mx-5">Address</h5>

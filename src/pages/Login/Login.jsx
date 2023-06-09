@@ -87,7 +87,7 @@ const Login = () => {
             Don't have an account? <a href="/signup">Register</a>
           </p>
 
-          {/* Social login buttons */}
+          
          <SocialLogin></SocialLogin>
         </Form>
       </div>

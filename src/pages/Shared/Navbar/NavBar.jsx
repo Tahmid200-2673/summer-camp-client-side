@@ -25,10 +25,11 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
           <Nav className="mx-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#instructors">Instructors</Nav.Link>
-            <Nav.Link href="#classes">Classes</Nav.Link>
+            <Nav.Link href="/instructors">Instructors</Nav.Link>
+            <Nav.Link href="/classes">Classes</Nav.Link>
            {
             user ? <>
+             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
              <Button onClick={functionLogOut} variant="secondary" className='mx-5'>Logout</Button>{' '}
             </> : <>
             <Nav.Link href="/login">Login</Nav.Link>

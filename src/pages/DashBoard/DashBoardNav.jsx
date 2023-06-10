@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import { FaBook, FaBroom, FaUser } from 'react-icons/fa';
+import { FaBook, FaBroom, FaSuitcase, FaUser } from 'react-icons/fa';
 import useAdmin from '../../hooks/useAdmin';
 import useInstructor from '../../hooks/useInstructor';
 
@@ -44,7 +44,7 @@ const DashBoardNav = () => {
               <FaBook /> My Selected Classes
             </Nav.Link>
             <Nav.Link href="/dashboard/myenrolledclasses">
-              <FaBook /> My Enrolled Classes
+              <FaSuitcase /> My Enrolled Classes
             </Nav.Link>
           </>
         )}

@@ -1,109 +1,105 @@
-// import React, { useState, useEffect } from 'react';
-// import { Button, Card } from 'react-bootstrap';
 
-// const Classes = () => {
-//   const [classes, setClasses] = useState([]);
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [userRole, setUserRole] = useState('');
-
-//   useEffect(() => {
-//     // Simulating fetching approved classes from an API
-//     const fetchApprovedClasses = async () => {
-//       try {
-//         // Replace this with your API call to fetch approved classes
-//         const response = await fetch('http://localhost:5000/classes/approved');
-//         const data = await response.json();
-//         setClasses(data);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-
-//     fetchApprovedClasses();
-//   }, []);
-
-//   const handleSelect = (classId) => {
-//     if (!isLoggedIn) {
-//       alert('Please log in before selecting a course.');
-//       return;
-//     }
-
-//     if (userRole === 'admin' || userRole === 'instructor') {
-//       alert('You are logged in as an admin/instructor. Selecting courses is not allowed.');
-//       return;
-//     }
-
-    
-//     alert(`Course with ID ${classId} selected.`);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Classes</h1>
-//       {classes.map((classItem) => (
-//         <Card  key={classItem.id} style={{ width: '18rem', marginBottom: '1rem' }}>
-//             <Card.Img variant="top" src={classItem.classImage} alt="Class" />
-//           <Card.Body>
-//             <Card.Title>{classItem.className}</Card.Title>
-//             <Card.Text>
-//               Instructor: {classItem.instructorName}
-//               <br />
-//               Available Seats: {classItem.availableSeats}
-//               <br />
-//               Price: {classItem.price}
-//             </Card.Text>
-//             <Button
-//               variant="primary"
-//               disabled={classItem.availableSeats === 0 || userRole === 'admin' || userRole === 'instructor'}
-//               onClick={() => handleSelect(classItem.id)}
-//             >
-//               Select
-//             </Button>
-//           </Card.Body>
-//         </Card>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Classes;
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import './Classes.css'; // Import the custom CSS file
+import './Classes.css'; 
+import axios from 'axios';
+import { AuthContext } from '../../providers/AuthProvider';
+import useCart from '../../hooks/useCart';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Classes = () => {
+  const {user} = useContext(AuthContext);
+  const [, refetch] = useCart();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [classes, setClasses] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState('');
 
+  // useEffect(() => {
+    
+  //   const fetchApprovedClasses = async () => {
+  //     try {
+        
+  //       const response = await fetch('http://localhost:5000/classes/approved');
+  //       const data = await response.json();
+  //       setClasses(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   fetchApprovedClasses();
+  // }, []);
+
   useEffect(() => {
-    // Simulating fetching approved classes from an API
     const fetchApprovedClasses = async () => {
       try {
-        // Replace this with your API call to fetch approved classes
-        const response = await fetch('http://localhost:5000/classes/approved');
-        const data = await response.json();
+        const response = await axios.get('http://localhost:5000/classes/approved');
+        const data = response.data;
         setClasses(data);
       } catch (error) {
         console.error(error);
       }
     };
-
+  
     fetchApprovedClasses();
   }, []);
 
-  const handleSelect = (classId) => {
-    if (!isLoggedIn) {
-      alert('Please log in before selecting a course.');
-      return;
-    }
+  const handleAddToCart = classItem => {
 
-    if (userRole === 'admin' || userRole === 'instructor') {
-      alert('You are logged in as an admin/instructor. Selecting courses is not allowed.');
-      return;
-    }
-
-    alert(`Course with ID ${classId} selected.`);
+   console.log(classItem)
+    if(user && user.email){
+   
+   const cartItem = {
+    classItemId: classItem._id,
+    status: classItem.status,
+    price: classItem.price,
+    instructorName: classItem.instructorName,
+    instructorEmail: classItem.instructorEmail, 
+    feedback: classItem.feedback,
+    className: classItem.className,
+    classImage: classItem.classImage,
+    availableSeats: classItem.availableSeats,
+    email: user.email
+  };
+     fetch('http://localhost:5000/carts', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(cartItem)
+     })
+     .then(res => res.json())
+     .then(data => {
+         if(data.insertedId){
+             refetch(); // refetch cart to update the number of items in the cart
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                 title: 'Class selected',
+                 showConfirmButton: false,
+                timer: 1500
+              })
+        }
+     })
+ }
+ else{
+     Swal.fire({
+        title: 'Please login to select a class',
+        icon: 'warning',
+        showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Login now!'
+       }).then((result) => {
+         if (result.isConfirmed) {
+           navigate('/login', {state: {from: location}})
+         }
+       })
+ }
   };
 
   return (
@@ -125,7 +121,7 @@ const Classes = () => {
               <Button
                 variant="primary"
                 disabled={classItem.availableSeats === 0 || userRole === 'admin' || userRole === 'instructor'}
-                onClick={() => handleSelect(classItem.id)}
+                onClick={() => handleAddToCart(classItem)}
               >
                 Select
               </Button>

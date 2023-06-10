@@ -10,7 +10,7 @@ const AddClass = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    // Capture form field values
+    
     const form = event.target;
     const classes = {
       className: form.elements.className.value,
@@ -48,7 +48,7 @@ const AddClass = () => {
        
       });
   
-    // Reset the form fields
+    
     form.reset();
   };
   

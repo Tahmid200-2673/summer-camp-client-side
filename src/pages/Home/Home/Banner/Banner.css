@@ -1,6 +1,7 @@
 .b-img{
-    object-fit: cover;
-}
+    /* object-fit: cover; */
+    height: 720px;
+} 
 .b-slide {
     position: relative;
     display: flex;
@@ -31,6 +32,9 @@
   
  
 @media only screen and (min-width: 688px) and (max-width: 992px){
+  .b-img{
+      height: fit-content;
+  }
     .b-caption {
       font-size: 20px;
     }
@@ -45,6 +49,11 @@
   }
   
   @media  only screen and (max-width: 688px) {
+    
+      .b-img{
+        height: fit-content;
+    }
+    
     .b-caption {
       font-size: 16px;
     }

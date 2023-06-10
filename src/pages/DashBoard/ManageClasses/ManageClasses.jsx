@@ -6,20 +6,39 @@ const ManageClasses = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [selectedClass, setSelectedClass] = useState(null);
+  const [disabledButtons, setDisabledButtons] = useState([]);
 
   useEffect(() => {
     const fetchClasses = async () => {
-      try {
+       try {
         const response = await fetch('http://localhost:5000/classes');
         const data = await response.json();
         setClasses(data);
+
+    
       } catch (error) {
         console.error(error);
-      }
-    };
+   }
+   };
 
     fetchClasses();
+   }, []);
+
+ 
+  //
+  
+  useEffect(() => {
+    const disabledButtonsString = localStorage.getItem('disabledButtons');
+    if (disabledButtonsString) {
+      const disabledButtonsArray = JSON.parse(disabledButtonsString);
+      setDisabledButtons(disabledButtonsArray);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('disabledButtons', JSON.stringify(disabledButtons));
+  }, [disabledButtons]);
+  //
 
   const approveClass = async (classId) => {
     try {
@@ -93,10 +112,14 @@ const ManageClasses = () => {
   };
   const handleApprove = (classItem) => {
     approveClass(classItem._id);
+    //
+    setDisabledButtons((prevDisabledButtons) => [...prevDisabledButtons, classItem._id]);
   };
 
   const handleDeny = (classItem) => {
     denyClass(classItem._id);
+    //
+    setDisabledButtons((prevDisabledButtons) => [...prevDisabledButtons, classItem._id]);
   };
 
   const handleSendFeedback = (classItem) => {
@@ -141,16 +164,27 @@ const ManageClasses = () => {
               <td>{classItem.price}</td>
               <td>{classItem.status}</td>
               <td>
-                {classItem.status === 'pending' && (
-                  <>
-                    <Button variant="success" onClick={() => handleApprove(classItem)}>
-                      Approve
-                    </Button>{' '}
-                    <Button variant="danger" onClick={() => handleDeny(classItem)}>
-                      Deny
-                    </Button>{' '}
-                  </>
-                )}
+               
+             
+  <>
+    <Button
+      variant="success"
+      onClick={() => handleApprove(classItem)}
+      // disabled={classItem.status === 'approved'}
+      disabled={disabledButtons.includes(classItem._id) || classItem.status === 'approved'}
+    >
+      Approve
+    </Button>{' '}
+    <Button
+      variant="danger"
+      onClick={() => handleDeny(classItem)}
+      // disabled={classItem.status === 'denied'}
+      disabled={disabledButtons.includes(classItem._id) || classItem.status === 'denied'}
+    >
+      Deny
+    </Button>{' '}
+  </>
+
                 <Button variant="primary" onClick={() => handleSendFeedback(classItem)} className='mt-5 mx-2'>
                   Send Feedback
                 </Button>

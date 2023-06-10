@@ -1,23 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Table } from 'react-bootstrap';
+import axios from 'axios';
 
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
   
+  //   const fetchInstructors = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:5000/users/instructors');
+  //       const data = await response.json();
+  //       setInstructors(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   fetchInstructors();
+  // }, []);
+
+  useEffect(() => {
     const fetchInstructors = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users/instructors');
-        const data = await response.json();
+        const response = await axios.get('http://localhost:5000/users/instructors');
+        const data = response.data;
         setInstructors(data);
       } catch (error) {
         console.error(error);
       }
     };
-
+  
     fetchInstructors();
   }, []);
+  
 
   return (
     <div>

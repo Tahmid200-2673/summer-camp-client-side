@@ -7,8 +7,8 @@ import useCart from "../../../hooks/useCart";
 // import './CheckoutForm.css'
 
 
-const CheckoutForm = ({  price }) => {
-     const [cart, refetch] = useCart();
+const CheckoutForm = ({  price,cart }) => {
+     //const [cart, refetch] = useCart();
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
@@ -85,16 +85,16 @@ const CheckoutForm = ({  price }) => {
             // save payment information to the server
             const payment = {
                 transactionId: paymentIntent.id,
-                classItemId: cart[0]._id, 
+                classItemId: cart?._id, 
                 date: new Date(),
-                status: cart[0].status, 
-                price: cart[0].price, 
-                instructorName: cart[0].instructorName, 
-                instructorEmail: cart[0].instructorEmail, 
-                feedback: cart[0].feedback, 
-                className: cart[0].className, 
-                classImage: cart[0].classImage, 
-                availableSeats: cart[0].availableSeats, 
+                status: cart?.status, 
+                price: cart?.price, 
+                instructorName: cart?.instructorName, 
+                instructorEmail: cart?.instructorEmail, 
+                feedback: cart?.feedback, 
+                className: cart?.className, 
+                classImage: cart?.classImage, 
+                availableSeats: cart?.availableSeats, 
                 email: user.email,
             };
             axiosSecure.post('/payments', payment)

@@ -17,6 +17,10 @@ import Classes from "../pages/Classes/Classes";
 import Instructors from "../pages/Instructors/Instructors";
 import MySelectedClasses from "../pages/DashBoard/MySelectedClasses/MySelectedClasses";
 import Payment from "../pages/DashBoard/Payment/Payment";
+import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledClasses";
+import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 
   export const router = createBrowserRouter([
     {
@@ -45,25 +49,25 @@ import Payment from "../pages/DashBoard/Payment/Payment";
         },
         {
           path: "dashboard",
-          element: <DashboardLayout></DashboardLayout>,
+          element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
           children: [
             //admin routes
             {
               path: 'manageusers',
-              element: <ManageUsers></ManageUsers>,
+              element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
             },
             {
               path: 'manageclasses',
-              element: <ManageClasses></ManageClasses>,
+              element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
             },
             //instructors routes
             {
               path: 'addclass',
-              element: <AddClass></AddClass>,
+              element: <InstructorRoute><AddClass></AddClass></InstructorRoute>,
             },
             {
               path: 'myclasses',
-              element: <MyClasses></MyClasses>,
+              element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>,
             },
             //student routes
             {
@@ -71,8 +75,17 @@ import Payment from "../pages/DashBoard/Payment/Payment";
               element: <MySelectedClasses></MySelectedClasses>,
             },
             {
-              path: 'payment',
+              path: 'myenrolledclasses',
+              element: <MyEnrolledClasses></MyEnrolledClasses>,
+            },
+            {
+              path: 'paymenthistory',
+              element: <PaymentHistory></PaymentHistory>,
+            },
+            {
+              path: 'payment/:id',
               element: <Payment></Payment>,
+              loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
             },
 
           ],

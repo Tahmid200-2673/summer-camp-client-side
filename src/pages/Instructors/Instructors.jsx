@@ -37,7 +37,7 @@ const Instructors = () => {
 
   return (
     <div>
-    <h2>Instructors</h2>
+    <h2 className='text-center'>Our Instructors</h2>
     <Table striped bordered hover>
       <thead>
         <tr>

@@ -81,7 +81,7 @@ const AddClass = () => {
           <FormLabel>Price:</FormLabel>
           <FormControl type="number" name="price" required />
         </FormGroup>
-        <Button type="submit">Add</Button>
+        <Button type="submit" className='mt-5'>Add</Button>
       </Form>
     </div>
   );

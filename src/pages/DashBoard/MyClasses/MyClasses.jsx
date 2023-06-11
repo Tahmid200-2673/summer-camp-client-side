@@ -67,7 +67,7 @@ useEffect(() => {
             <tr key={classItem.id}>
               <td>{classItem.className}</td>
               <td>{classItem.status}</td>
-              <td>{classItem.totalEnrolledStudents}</td>
+              <td>{classItem.enrolledStudents}</td>
              
               <td>
                 { classItem.feedback }

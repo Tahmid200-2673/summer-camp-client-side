@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom';
 
 const MySelectedClasses = () => {
   const [cart, refetch] = useCart();
-
-  const handleDeleteClass = item => {
+  
+console.log(cart)
+  const handleDeleteClass = (itemId) => {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -19,7 +20,7 @@ const MySelectedClasses = () => {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/carts/${item._id}`, {
+            fetch(`http://localhost:5000/carts/${itemId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -66,10 +67,11 @@ const MySelectedClasses = () => {
               <td>{item.price}</td>
               <td>
                 <div className="d-grid gap-2">
-                  <Button variant="danger" onClick={() => handleDeleteClass(item)} className="mb-2">
+                  <Button variant="danger" onClick={() => handleDeleteClass(item._id)} className="mb-2">
                     Delete
                   </Button>
-                <Link to="/dashboard/payment">  <Button variant="primary" className="mb-2 w-100">
+                {/* <Link to="/dashboard/payment">  <Button variant="primary" className="mb-2 w-100"> */}
+                <Link to={`/dashboard/payment/${item._id}`}>  <Button variant="primary" className="mb-2 w-100">
                     Pay
                   </Button>
                   </Link>

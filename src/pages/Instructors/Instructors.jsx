@@ -5,20 +5,7 @@ import axios from 'axios';
 const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
-  // useEffect(() => {
   
-  //   const fetchInstructors = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:5000/users/instructors');
-  //       const data = await response.json();
-  //       setInstructors(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchInstructors();
-  // }, []);
 
   useEffect(() => {
     const fetchInstructors = async () => {

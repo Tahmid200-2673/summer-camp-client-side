@@ -1,22 +1,4 @@
-// import React from 'react';
-// import Banner from './Banner/Banner';
-// import PopularInstructors from '../../PopularInstructors/PopularInstructors';
-// import PopularClasses from '../../PopularClasses/PopularClasses';
-// import FeaturedActivitiesSection from '../../Shared/FeaturedActivitiesSection/FeaturedActivitiesSection';
 
-// const Home = () => {
-//     return (
-//         <div>
-//           <Banner></Banner>
-//           <PopularClasses></PopularClasses>
-//           <PopularInstructors></PopularInstructors>
-//           <FeaturedActivitiesSection></FeaturedActivitiesSection>
-          
-//         </div>
-//     );
-// };
-
-// export default Home;
 
 import React, { useState } from 'react';
 import Banner from './Banner/Banner';

@@ -12,7 +12,7 @@ const MyEnrolledClasses = () => {
   useEffect(() => {
     const fetchEnrolledClasses = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/payments?email=${user?.email}`);
+        const response = await fetch(`https://b7a12-summer-camp-server-side.vercel.app/payments?email=${user?.email}`);
         const data = await response.json();
         setEnrolledClasses(data);
         setIsLoading(false);

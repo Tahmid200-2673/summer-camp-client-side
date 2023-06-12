@@ -9,7 +9,7 @@ const PaymentHistory = () => {
   useEffect(() => {
     const fetchPaymentHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/payments?email=${user?.email}`);
+        const response = await fetch(`https://b7a12-summer-camp-server-side.vercel.app/payments?email=${user?.email}`);
         const data = await response.json();
         
         const sortedData = data.sort((a, b) => b.date - a.date);

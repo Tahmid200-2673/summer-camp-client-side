@@ -8,7 +8,7 @@ const PopularInstructors = () => {
   useEffect(() => {
     const fetchPopularInstructors = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users/instructors');
+        const response = await fetch('https://b7a12-summer-camp-server-side.vercel.app/users/instructors');
         const data = await response.json();
 
 

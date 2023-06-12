@@ -27,7 +27,7 @@ const Classes = () => {
   useEffect(() => {
     const fetchApprovedClasses = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/classes/approved');
+        const response = await axios.get('https://b7a12-summer-camp-server-side.vercel.app/classes/approved');
         const data = response.data;
         setClasses(data);
       } catch (error) {
@@ -52,7 +52,7 @@ const Classes = () => {
         availableSeats: classItem.availableSeats,
         email: user.email
       };
-      fetch('http://localhost:5000/carts', {
+      fetch('https://b7a12-summer-camp-server-side.vercel.app/carts', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

@@ -20,7 +20,7 @@ console.log(cart)
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/carts/${itemId}`, {
+            fetch(`https://b7a12-summer-camp-server-side.vercel.app/carts/${itemId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

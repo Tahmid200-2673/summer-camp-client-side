@@ -8,7 +8,7 @@ const PopularClasses = () => {
   useEffect(() => {
     const fetchPopularClasses = async () => {
       try {
-        const response = await fetch('http://localhost:5000/classes/approved');
+        const response = await fetch('https://b7a12-summer-camp-server-side.vercel.app/classes/approved');
         const data = await response.json();
 
         const sortedClasses = data.sort((a, b) => b.enrolledStudents - a.enrolledStudents);

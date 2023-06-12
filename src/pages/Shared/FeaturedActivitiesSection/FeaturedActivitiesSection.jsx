@@ -14,19 +14,19 @@ const FeaturedActivitiesSection = () => {
     {
       id: 1,
       name: 'Football',
-      image: '/src/assets/f1.jpg',
+      image: 'https://i.ibb.co/gMDGjQ3/f1.jpg',
       description: 'Learn football techniques and tactics from professional coaches. Suitable for all skill levels.',
     },
     {
       id: 2,
       name: 'Basketball',
-      image: '/src/assets/f2.jpeg',
+      image: 'https://i.ibb.co/ZWjsZXf/f2.jpg',
       description: 'Improve your basketball skills through drills, team games, and friendly competitions.',
     },
     {
       id: 3,
       name: 'Swimming',
-      image: '/src/assets/f3.jpg',
+      image: 'https://i.ibb.co/8gRXWH7/f3.jpg',
       description: 'Enjoy swimming lessons and water activities in our state-of-the-art swimming facilities.',
     },
   ];

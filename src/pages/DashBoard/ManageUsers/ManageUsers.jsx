@@ -16,7 +16,7 @@ const ManageUsers = () => {
   const makeAdmin = user => {
 
     setDisabledButtons(prevButtons => [...prevButtons, `admin_${user._id}`]);
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://b7a12-summer-camp-server-side.vercel.app/users/admin/${user._id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())
@@ -37,7 +37,7 @@ const ManageUsers = () => {
   const makeInstructor = user => {
 
     setDisabledButtons(prevButtons => [...prevButtons, `instructor_${user._id}`]);
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+    fetch(`https://b7a12-summer-camp-server-side.vercel.app/users/instructor/${user._id}`, {
         method: 'PATCH'
     })
     .then(res => res.json())

@@ -86,7 +86,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
             {
               path: 'payment/:id',
               element: <Payment></Payment>,
-              loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+              loader: ({params}) => fetch(`https://b7a12-summer-camp-server-side.vercel.app/carts/${params.id}`)
             },
 
           ],

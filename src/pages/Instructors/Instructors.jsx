@@ -10,7 +10,7 @@ const Instructors = () => {
   useEffect(() => {
     const fetchInstructors = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/users/instructors');
+        const response = await axios.get('https://b7a12-summer-camp-server-side.vercel.app/users/instructors');
         const data = response.data;
         setInstructors(data);
       } catch (error) {

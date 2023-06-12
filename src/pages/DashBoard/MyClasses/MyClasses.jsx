@@ -13,7 +13,7 @@ useEffect(() => {
       return;
     }
   
-    fetch(`http://localhost:5000/classes?email=${user.email}`)
+    fetch(`https://b7a12-summer-camp-server-side.vercel.app/classes?email=${user.email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data); 

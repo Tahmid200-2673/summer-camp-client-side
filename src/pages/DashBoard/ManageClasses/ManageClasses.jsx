@@ -11,7 +11,7 @@ const ManageClasses = () => {
   useEffect(() => {
     const fetchClasses = async () => {
        try {
-        const response = await fetch('http://localhost:5000/classes');
+        const response = await fetch('https://b7a12-summer-camp-server-side.vercel.app/classes');
         const data = await response.json();
         setClasses(data);
 
@@ -42,7 +42,7 @@ const ManageClasses = () => {
 
   const approveClass = async (classId) => {
     try {
-      await fetch(`http://localhost:5000/classes/${classId}`, {
+      await fetch(`https://b7a12-summer-camp-server-side.vercel.app/classes/${classId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const ManageClasses = () => {
 
   const denyClass = async (classId) => {
     try {
-      await fetch(`http://localhost:5000/classes/${classId}`, {
+      await fetch(`https://b7a12-summer-camp-server-side.vercel.app/classes/${classId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const ManageClasses = () => {
   
   const sendFeedback = async (classId) => {
     try {
-      await fetch(`http://localhost:5000/classes/${classId}`, {
+      await fetch(`https://b7a12-summer-camp-server-side.vercel.app/classes/${classId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ Website Name : Teamwork Sports
 Features
 
 • Home page has navigation bar , banner , Popular Classes , Popular Instructors and Featured Activities(Extra Section) and footer
+
 • Instructors page shows all the instructors information 
 • Classes page shows all the classes information and you can select classes to enroll into classes after payment
 • Dashboard page shows different activities for students,instructors and and admins

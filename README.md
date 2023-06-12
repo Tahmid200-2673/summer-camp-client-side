@@ -3,7 +3,7 @@ Website Name : Teamwork Sports
 
 
 Features
-----------------------------------------------------------------
+
 • Home page has navigation bar , banner , Popular Classes , Popular Instructors and Featured Activities(Extra Section) and footer
 • Instructors page shows all the instructors information 
 • Classes page shows all the classes information and you can select classes to enroll into classes after payment
@@ -13,7 +13,7 @@ Features
 • In Featured Activities(Extra Section) I showed Framer-motion animation
 
 Package/Technology used in this project
---------------------------------------------------------
+
 In Client Side:
 • Tanstack Query
 • Axios

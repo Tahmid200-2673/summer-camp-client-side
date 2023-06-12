@@ -30,6 +30,8 @@ In Server Side:
 • Dotenv
 • Stripe etc
 
+Live Site: https://sports-academies-badb8.web.app/
+
 
 
 

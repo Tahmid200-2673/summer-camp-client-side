@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form, FormGroup, FormLabel, FormControl, Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
-// import { useAuth } from '../../hooks/useAuth';
+
 
 const AddClass = () => {
   const { user } = useAuth(); 

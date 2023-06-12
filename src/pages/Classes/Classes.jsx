@@ -259,8 +259,9 @@ const Classes = () => {
        disabled={
        classItem.availableSeats === 0 ||
         isAdmin ||
-        isInstructor||
-         !user
+        isInstructor
+        // ||
+        //  !user
          }
         onClick={() => handleAddToCart(classItem)}
            >

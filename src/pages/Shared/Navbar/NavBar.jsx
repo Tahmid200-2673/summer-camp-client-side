@@ -49,13 +49,6 @@ const NavBar = () => {
               <Button onClick={functionLogOut} variant="secondary" className='mx-5'>Logout</Button>{' '}
             </div>
 
-           
-
-
-
-
-
-
             
             </> : <>
             <Nav.Link href="/login"><Button variant="secondary" className='mx-5'>Login</Button></Nav.Link>

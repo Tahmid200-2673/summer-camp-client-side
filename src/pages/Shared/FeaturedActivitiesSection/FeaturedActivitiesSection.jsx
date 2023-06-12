@@ -9,7 +9,7 @@ import f3 from '../../../assets/f3.jpg';
 import './FeaturedActivitiesSection.css';
 
 const FeaturedActivitiesSection = () => {
-  // Sample data for featured activities
+  
   const featuredActivities = [
     {
       id: 1,

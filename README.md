@@ -56,7 +56,7 @@ In Server Side:
 
 ------------------------------------------------------------------
 
-Live Site: https://sports-academies-badb8.web.app/
+Live Site: https://sports-academies-badb8.web.app
 
 
 

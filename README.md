@@ -12,7 +12,7 @@ Features
 
 • Dashboard page shows different activities for students,instructors and and admins
 
-• In Registration and Login page user can sign's up and login
+• In Registration and Login page user can sign up and login
 
 • Error page shows 404 error
 

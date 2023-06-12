@@ -6,27 +6,7 @@ const MyClasses = () => {
     const { user } = useContext(AuthContext);
   const [classes, setClasses] = useState([]);
 
-//   useEffect(() => {
-//     fetch('http://localhost:5000/classes?email=${user?.email}')
-//       .then(res => res.json())
-//       .then(data => setClasses(data))
-//       .catch(error => {
-//         console.error(error);
-        
-//       });
-//   }, [user?.email]);
 
-// useEffect((user) => {
-//     fetch(`http://localhost:5000/classes?email=${user?.email}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data); // Log the response data to the console
-//         setClasses(data);
-//       })
-//       .catch(error => {
-//         console.error(error);
-//       });
-//   }, [user?.email]);
 
 useEffect(() => {
     if (!user?.email) {

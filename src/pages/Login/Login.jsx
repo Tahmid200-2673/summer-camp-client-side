@@ -11,8 +11,7 @@ import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
+
   const [showPassword, setShowPassword] = useState(false);
   const { roleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();

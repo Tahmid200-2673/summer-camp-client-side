@@ -21,6 +21,7 @@ import MyEnrolledClasses from "../pages/DashBoard/MyEnrolledClasses/MyEnrolledCl
 import PaymentHistory from "../pages/DashBoard/PaymentHistory/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
   export const router = createBrowserRouter([
     {
@@ -90,11 +91,12 @@ import InstructorRoute from "./InstructorRoute";
 
           ],
         },
-        {
-          path: 'secret',
-          element: <PrivateRoute><Secret></Secret></PrivateRoute>,
-        },
+       
       ],
     },
+    {
+      path: '*',
+      element: <ErrorPage></ErrorPage>,
+    }
     
   ]);

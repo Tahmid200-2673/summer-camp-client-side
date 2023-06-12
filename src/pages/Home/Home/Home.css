@@ -1,32 +1,32 @@
-/* Define styles for the dark theme */
+
 .dark-theme {
-    background-color: #1a1a1a; /* Set a dark background color */
-    color: #fff; /* Set a light text color for the dark theme */
+    background-color: #1a1a1a; 
+    color: #fff; 
   }
   
   .dark-theme .container-fluid {
-    background-color: #1a1a1a; /* Set a dark background color for the fluid container */
+    background-color: #1a1a1a; 
   }
   
   .dark-theme .activity-card {
-    background-color: #333; /* Set a dark background color for the activity cards */
+    background-color: #333; 
   }
   
-  /* Define styles for the light theme */
+ 
   .light-theme {
-    background-color: #f5f5f5; /* Set a light background color */
-    color: #000; /* Set a dark text color for the light theme */
+    background-color: #f5f5f5;
+    color: #000; 
   }
   
   .light-theme .container-fluid {
-    background-color: #f5f5f5; /* Set a light background color for the fluid container */
+    background-color: #f5f5f5;
   }
   
   .light-theme .activity-card {
-    background-color: #fff; /* Set a light background color for the activity cards */
+    background-color: #fff; 
   }
   
-  /* Additional styles for the button and theme toggle */
+  
   .theme-toggle {
     display: flex;
     justify-content: flex-end;

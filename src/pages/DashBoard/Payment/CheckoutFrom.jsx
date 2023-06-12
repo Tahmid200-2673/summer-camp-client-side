@@ -4,7 +4,7 @@ import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import useCart from "../../../hooks/useCart";
-// import './CheckoutForm.css'
+
 
 
 const CheckoutForm = ({  price,cart }) => {
@@ -56,7 +56,7 @@ const CheckoutForm = ({  price,cart }) => {
         }
         else {
             setCardError('');
-            // console.log('payment method', paymentMethod)
+           
         }
 
         setProcessing(true)
@@ -82,7 +82,7 @@ const CheckoutForm = ({  price,cart }) => {
         setProcessing(false)
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
-            // save payment information to the server
+           
             const payment = {
                 transactionId: paymentIntent.id,
                 classItemId: cart?._id, 

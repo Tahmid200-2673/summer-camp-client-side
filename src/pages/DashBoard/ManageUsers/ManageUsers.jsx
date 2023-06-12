@@ -72,7 +72,7 @@ const ManageUsers = () => {
         <tbody>
           {users.map((user, index) => (
             <tr key={index}>
-              {/* <td>{index + 1}</td> */}
+             
               <td><img src={user.photoURL} alt="User" style={{ width: '50px', height: '50px' }}/></td>
               <td>{user.name}</td>
               <td>{user.email}</td>

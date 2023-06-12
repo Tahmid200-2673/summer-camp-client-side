@@ -25,7 +25,7 @@ const ManageClasses = () => {
    }, []);
 
  
-  //
+  
   
   useEffect(() => {
     const disabledButtonsString = localStorage.getItem('disabledButtons');
@@ -38,7 +38,7 @@ const ManageClasses = () => {
   useEffect(() => {
     localStorage.setItem('disabledButtons', JSON.stringify(disabledButtons));
   }, [disabledButtons]);
-  //
+  
 
   const approveClass = async (classId) => {
     try {
@@ -112,13 +112,13 @@ const ManageClasses = () => {
   };
   const handleApprove = (classItem) => {
     approveClass(classItem._id);
-    //
+    
     setDisabledButtons((prevDisabledButtons) => [...prevDisabledButtons, classItem._id]);
   };
 
   const handleDeny = (classItem) => {
     denyClass(classItem._id);
-    //
+    
     setDisabledButtons((prevDisabledButtons) => [...prevDisabledButtons, classItem._id]);
   };
 
@@ -155,7 +155,7 @@ const ManageClasses = () => {
         <tbody>
           {classes.map((classItem) => (
             <tr key={classItem._id}>
-              {/* <td>{classItem.classImage}</td> */}
+             
               <img src={classItem.classImage} alt="User" style={{ width: '100px', height: '100px' }}/>
               <td>{classItem.className}</td>
               <td>{classItem.instructorName}</td>

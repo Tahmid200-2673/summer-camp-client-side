@@ -11,7 +11,7 @@ const PaymentHistory = () => {
       try {
         const response = await fetch(`http://localhost:5000/payments?email=${user?.email}`);
         const data = await response.json();
-        // Sort the payment history in descending order based on timestamp
+        
         const sortedData = data.sort((a, b) => b.date - a.date);
         setPaymentHistory(sortedData.reverse());
       } catch (error) {
